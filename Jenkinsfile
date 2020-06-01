@@ -13,6 +13,13 @@ pipeline {
             stage("Unit Test") {
                                 steps {
                                         sh 'mvn test'
+					publishHTML([allowMissing: false,
+						     alwaysLinkToLastBuild: false,
+						     keepAll: false,
+						     reportDir: 'target/site/jacoco/',
+						     reportFiles: 'index.html',
+						     reportName: 'Code Coverage Report',
+						     reportTitles: ''])
 				}
 	    }
 	    stage ("Build")
