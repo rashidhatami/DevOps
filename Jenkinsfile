@@ -22,6 +22,11 @@ pipeline {
 						     reportTitles: ''])
 				}
 	    }
+	    stage ("Code coverage"){
+		    steps{
+			    sh "mvn verify"
+		    }
+	    }
 	    stage ("Build")
 	    {
 		    steps{
