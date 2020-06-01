@@ -30,5 +30,10 @@ pipeline {
 	    }
 							
 }
+	post{
+		always{
+			echo "Completed Pipeline: ${currentBuild.fullDisplayName}"
+		}
+	}
 			
 }
