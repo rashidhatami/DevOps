@@ -25,7 +25,7 @@ pipeline {
 	    stage ("Build")
 	    {
 		    steps{
-			    sh "mvn package -Dmaven.test.skip=true"
+			    sh "mv package -Dmaven.test.skip=true"
 		    }
 	    }
 							
