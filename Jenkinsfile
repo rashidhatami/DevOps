@@ -61,6 +61,8 @@ pipeline {
 		}
 		failure{
 			echo "The pipeline: ${currentBuild.fullDisplayName} failed"
+			sh "docker stop calculator"
+
 		}
 	}
 			
