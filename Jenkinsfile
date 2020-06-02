@@ -33,6 +33,26 @@ pipeline {
 			    sh "mvn package -Dmaven.test.skip=true"
 		    }
 	    }
+	    stage("Docker Build"){
+		    steps{sh "docker build -t localhost:5000/calculator:1 ."}
+	    }
+	    stage("Docker Ship")
+	    {
+		    steps{sh "docker push localhost:5000/calculator:1"}
+	    }
+	    stage("Docker Run")
+	    {
+		    steps{sh "docker run -dit --name calculator -p 9876:8080 --restart always localhost:5000/calculator:1"}
+	    }
+	    stage("Acceptance testing")
+	    {
+		    steps{
+			    sleep 60
+			    sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+		    }
+	    }
+
+			 
 							
 }
 	post{
