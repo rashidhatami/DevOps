@@ -42,8 +42,11 @@ pipeline {
 	    }
 	    stage("Docker Run")
 	    {
-		    //steps{sh "docker run -dit --name calculator -p 9876:8080 --restart always localhost:5000/calculator:1"}
-		    echo 'test'
+		    steps{
+		   // sh "docker run -dit --name calculator -p 9876:8080 --restart always localhost:5000/calculator:1"
+			  echo 'test'  
+		    }
+		   
 	    }
 	    stage("Acceptance testing")
 	    {
