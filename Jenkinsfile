@@ -34,7 +34,7 @@ pipeline {
 		    }
 	    }
 	    stage("Docker Build"){
-		    steps{sh "docker build -t localhost:5000/calculator:1 ."}
+		    steps{sh "docker build -t localhost:5000/calculator:${BUILD_TIMESTAMP}  ."}
 	    }
 	    stage("Docker Ship")
 	    {
