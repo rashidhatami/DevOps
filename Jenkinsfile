@@ -34,11 +34,11 @@ pipeline {
 		    }
 	    }
 	    stage("Docker Build"){
-		    steps{sh "docker build -t localhost:5000/calculator:${BUILD_TIMESTAMP}  ."}
+		    steps{sh "docker build -t localhost:5000/calculator:${BUILD_TIMESTAMP} ."}
 	    }
 	    stage("Docker Ship")
 	    {
-		    steps{sh "docker push localhost:5000/calculator:${BUILD_TIMESTAMP} "}
+		    steps{sh "docker push localhost:5000/calculator:${BUILD_TIMESTAMP}"}
 	    }
 	    stage("Docker Run")
 	    {
