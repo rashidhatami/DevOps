@@ -38,13 +38,13 @@ pipeline {
 	    }
 	    stage("Docker Ship")
 	    {
-		    steps{sh "docker push localhost:5000/calculator:1"}
+		    steps{sh "docker push localhost:5000/calculator:${BUILD_TIMESTAMP} "}
 	    }
 	    stage("Docker Run")
 	    {
 		    steps{
-		   // sh "docker run -dit --name calculator -p 9876:8080 --restart always localhost:5000/calculator:1"
-			  echo 'test'  
+		    sh "docker run -dit --name calculator -p 9876:8080 --restart always localhost:5000/calculator:${BUILD_TIMESTAMP}"
+			  //echo 'test'  
 		    }
 		   
 	    }
